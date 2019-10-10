@@ -2,15 +2,15 @@
 
 cd
 mkdir ~/.output/
-chmod ~/.output/
+chmod +x ~/.output/
 mkdir ~/.output/File-paths/
-chmod ~/.output/File-paths/
+chmod +x ~/.output/File-paths/
 mkdir ~/.output/Network-info/
-chmod ~/.output/Network-info/
+chmod +x ~/.output/Network-info/
 mkdir ~/.output/File-system/
-chmod ~/.output/File-system/
+chmod +x ~/.output/File-system/
 mkdir ~/.output/System-info/
-chmod ~/.output/System-info/
+chmod +x ~/.output/System-info/
 
 
 ######   system information   ####### ==============================================================
