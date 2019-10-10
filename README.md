@@ -7,6 +7,18 @@ Xenum ==> Just working With linux system.
 
 
 Tested on:
-
+-------
 * Ubuntu 
 
+
+
+Install:
+------
+git clone https://github.com/o-joba/X-enum.git
+cd X-enum/
+bash x-enum
+
+
+Output:
+-----
+You will find the output in Home Directory as hidden folder named ( .output ) in this folder you have the informtion you gatherd from the victim.  
