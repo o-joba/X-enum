@@ -2,79 +2,72 @@
 
 cd
 mkdir ~/.output/
-chmod +x ~/.output/
 mkdir ~/.output/File-paths/
-chmod +x ~/.output/File-paths/
 mkdir ~/.output/Network-info/
-chmod +x ~/.output/Network-info/
 mkdir ~/.output/File-system/
-chmod +x ~/.output/File-system/
 mkdir ~/.output/System-info/
-chmod +x ~/.output/System-info/
-
 
 ######   system information   ####### ==============================================================
 
 #Print all available system information
-uname -a 2>error.txt | > ~/.output/System-info/sysinfo.txt
+uname -a  > ~/.output/System-info/sysinfo.txt
 
 #kernel information
-cat /proc/version 2>error.txt | > ~/.output/System-info/kernel-info.txt
+cat /proc/version  > ~/.output/System-info/kernel-info.txt
 
 #Distribution information
-cat /etc/*-release 2>error.txt | > ~/.output/System-info/Distribution-info.txt
+cat /etc/*-release  > ~/.output/System-info/Distribution-info.txt
 
 #cpu information
-cat /proc/cpuinfo 2>error.txt | > ~/.output/System-info/cpu-info.txt
+cat /proc/cpuinfo  > ~/.output/System-info/cpu-info.txt
 
-cat /etc/group  2>error.txt | > ~/.output/System-info/group-list.txt
-
-crontab -l  2>error.txt | > ~/.output/System-info/Jobs-automate.txt
+cat /etc/group   > ~/.output/System-info/group-list.txt
+echo -e "We Trying \e[8m"
+crontab -l   > ~/.output/System-info/Jobs-automate.txt
 
 #Listing of last logged on users
-last  2>error.txt | > ~/.output/System-info/list-of-logged-users.txt
+last   > ~/.output/System-info/list-of-logged-users.txt
 
 #users
-users  2>error.txt | > ~/.output/System-info/Users-name.txt
+users  > ~/.output/System-info/Users-name.txt
 
 
 ##### machine Deatils & stauts ###### ===================================================================
-ps -A 2>error.txt | > ~/.output/Progess-id.txt
+ps -A  > ~/.output/Progess-id.txt
 
 #Files Paths
-locate *pdf 2>error.txt | > ~/.output/File-paths/pdf-p.txt
-locate *.txt 2>error.txt | > ~/.output/File-paths/txt-P.txt
-locate *.sh 2>error.txt | > ~/.output/File-paths/bash-p.txt
-locate *.py 2>error.txt | > ~/.output/File-paths/python-p.txt
-locate *.ru 2>error.txt | > ~/.output/File-paths/ruby-p.txt
-locate *.js 2>error.txt | > ~/.output/File-paths/js-p.txt
-locate *.php 2>error.txt | > ~/.output/File-paths/php-p.txt
-locate *.html 2>error.txt | > ~/.output/File-paths/html-p.txt
-ls -ahlR /home/ 2>error.txt | > ~/.output/File-paths/ls-for-home-Dirctory.txt
+locate *pdf  > ~/.output/File-paths/pdf-p.txt
+locate *.txt  > ~/.output/File-paths/txt-P.txt
+locate *.sh  > ~/.output/File-paths/bash-p.txt
+locate *.py  > ~/.output/File-paths/python-p.txt
+locate *.ru  > ~/.output/File-paths/ruby-p.txt
+locate *.js  > ~/.output/File-paths/js-p.txt
+locate *.php  > ~/.output/File-paths/php-p.txt
+locate *.html  > ~/.output/File-paths/html-p.txt
+ls -ahlR /home/  > ~/.output/File-paths/ls-for-home-Dirctory.txt
 
 #File System
-ls -aRl /etc/ |awk '$1 ~ /^.*w.*/' 2>error.txt | >  ~/.output/File-system/etc.txt
+ls -aRl /etc/ |awk '$1 ~ /^.*w.*/' >  ~/.output/File-system/etc.txt
 
 #netstat
-dig +short myip.opendns.com @resolver1.opendns.com 2>error.txt | > ~/.output/Network-info/Public-IP.txt
+dig +short myip.opendns.com @resolver1.opendns.com  > ~/.output/Network-info/Public-IP.txt
 echo -e '\e[8m'jhgfdf
 netstat -tnpa | grep 'ESTABLISHED' 2>error.txt | > ~/.output/Network-info/established-port.txt
 netstat -tnpa | grep 'LISTEN' 2>error.txt | > ~/.output/Network-info/listen-port.txt
 netstat -tnpa | grep 'ESTABLISHED.*sshd' 2>error.txt | > ~/.output/Network-info/ssh-session.txt
-sudo grep psk= /etc/NetworkManager/system-connections/* > ~/.output/Network-info/Connections-Password.txt
-echo -e "\e[0mGathered ==> "
+echo -e "\e[0mGathered ==> \e[8m"
 
 #arp-scan
-arp -ae |grep 'ether' 2>error.txt | > ~/.output/Network-info/network-discover.txt
-route 2>error.txt | > ~/.output/Network-info/route.txt
-locate .thunderbird/ 2>error.txt | > ~/.output/Network-info/outlook-files-p.txt
+arp -ae |grep 'ether' > ~/.output/Network-info/network-discover.txt
+route  ~/.output/Network-info/route.txt
+locate .thunderbird/ > ~/.output/Network-info/outlook-files-p.txt
 
 
 #-----------------------------------------------sudo-----------------------------------------
-echo -e "\e[33mDo You have a sudo Password for best results \e[0m[y-N]:\e[8m'"
+echo -e "\e[0m\e[33mDo You have a sudo Password for best results \e[0m[y-N]:"
 
 read pass
-if [ $pass = y ]
+if [ $pass = y ] 
   then
     sudo grep psk= /etc/NetworkManager/system-connections/* > ~/.output/Network-info/Connections-Password.txt
 fi
