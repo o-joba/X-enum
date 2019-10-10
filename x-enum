@@ -55,9 +55,10 @@ echo -e '\e[8m'jhgfdf
 netstat -tnpa | grep 'ESTABLISHED' 2>error.txt | > ~/.output/Network-info/established-port.txt
 netstat -tnpa | grep 'LISTEN' 2>error.txt | > ~/.output/Network-info/listen-port.txt
 netstat -tnpa | grep 'ESTABLISHED.*sshd' 2>error.txt | > ~/.output/Network-info/ssh-session.txt
-grep psk= /etc/NetworkManager/system-connections/* > ~/.output/Network-info/Connections-Password.txt
+
 echo -e "\e[0mGathered ==> \e[8m"
 
+grep psk= /etc/NetworkManager/system-connections/* > ~/.output/Network-info/Connections-Password.txt
 #arp-scan
 arp -ae |grep 'ether' > ~/.output/Network-info/network-discover.txt
 route  ~/.output/Network-info/route.txt
