@@ -15,7 +15,9 @@ Tested on:
 Install:
 ------
 git clone https://github.com/o-joba/X-enum.git
+
 cd X-enum/
+
 bash x-enum
 
 
