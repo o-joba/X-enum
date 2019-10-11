@@ -8,7 +8,6 @@ mkdir ~/.output/File-system/
 mkdir ~/.output/System-info/
 
 ######   system information   ####### ==============================================================
-
 #Print all available system information
 uname -a  > ~/.output/System-info/sysinfo.txt
 
@@ -55,6 +54,7 @@ echo -e '\e[8m'jhgfdf
 netstat -tnpa | grep 'ESTABLISHED' 2>error.txt | > ~/.output/Network-info/established-port.txt
 netstat -tnpa | grep 'LISTEN' 2>error.txt | > ~/.output/Network-info/listen-port.txt
 netstat -tnpa | grep 'ESTABLISHED.*sshd' 2>error.txt | > ~/.output/Network-info/ssh-session.txt
+traceroute google.com > ~/.output/Network-info/IP-to-ISP.txt
 
 echo -e "\e[0mGathered ==> \e[8m"
 
